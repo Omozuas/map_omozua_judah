@@ -80,7 +80,9 @@ class _MapScreenState extends ConsumerState<MapScreen>
                           Marker(
                             markerId: MarkerId('marker_$i'),
                             position: markers[i],
-                            icon: BitmapDescriptor.defaultMarkerWithHue(50),
+                            icon: BitmapDescriptor.defaultMarkerWithHue(
+                              (i * 50) % 360,
+                            ),
                             onTap:
                                 () => _showNavigationDialog(
                                   context,
