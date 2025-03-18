@@ -13,8 +13,8 @@ import 'package:mappingapp/common/app_style.dart';
 
 //97
 class MapScreen extends ConsumerStatefulWidget {
-  const MapScreen({super.key, required this.addHistory});
-  final Function(String, String) addHistory;
+  const MapScreen({super.key});
+
   @override
   ConsumerState<MapScreen> createState() => _MapScreenState();
 }
@@ -50,7 +50,7 @@ class _MapScreenState extends ConsumerState<MapScreen>
                       },
                       initialCameraPosition:
                           cameraPosition ??
-                          CameraPosition(target: userLocation, zoom: 15),
+                          CameraPosition(target: userLocation, zoom: 16),
                       markers: {
                         Marker(
                           markerId: MarkerId('current location'),
@@ -143,7 +143,7 @@ class _MapScreenState extends ConsumerState<MapScreen>
               Expanded(
                 child: Text(
                   "your location: $fromAddress   Destination: $toAddress",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: appStyle(18, Colors.black87, FontWeight.bold),
                 ),
               ),
             ],
@@ -154,7 +154,7 @@ class _MapScreenState extends ConsumerState<MapScreen>
             children: [
               Text(
                 "Coordinates: ${destination.latitude.toStringAsFixed(4)}, ${destination.longitude.toStringAsFixed(4)}",
-                style: TextStyle(fontSize: 14, color: Colors.black87),
+                style: appStyle(14, Colors.black87, FontWeight.normal),
               ),
               SizedBox(height: 8),
               Text(

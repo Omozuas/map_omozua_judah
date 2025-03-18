@@ -38,7 +38,7 @@ class LocationNotifier extends StateNotifier<LatLng?> {
       Geolocator.getPositionStream(
         locationSettings: const LocationSettings(
           accuracy: LocationAccuracy.best,
-          distanceFilter: 10, // Update only if user moves 10 meters
+          distanceFilter: 5, // Update only if user moves 5 meters
         ),
       ).listen((Position position) async {
         final newLocation = LatLng(position.latitude, position.longitude);

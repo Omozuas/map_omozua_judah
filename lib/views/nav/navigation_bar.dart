@@ -17,22 +17,14 @@ class NavigationBarScreen extends StatefulWidget {
 }
 
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
-  List<Map<String, String>> navigationHistory = [];
   late List<Widget> _screens;
-
-  void addHistory(String from, String to) {
-    if (navigationHistory.length >= 5) {
-      navigationHistory.removeAt(0); // Keep only last 5
-    }
-    navigationHistory.add({"from": from, "to": to});
-  }
 
   @override
   void initState() {
     super.initState();
     _screens = [
       MenuScreen(), // Menu items: Profile, Support, History
-      MapScreen(addHistory: addHistory), // Google Map with 7 random points
+      MapScreen(), // Google Map with 7 random points
     ];
   }
 
